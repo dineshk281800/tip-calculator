@@ -25,17 +25,17 @@
         <div class="bill-section">
           <div class="heading">
             <h6>Bill</h6>
-            <h6 class="error-message" id="error-message">Can't be negative or zero</h6>
+            <h6 class="error-message" id="bill-error-message">Can't be negative or zero</h6>
           </div>
           <input type="number" id="bill-charge" name="bill-charge" placeholder="0"/>
         </div>
         <div class="select-tip-section">
           <div class="heading">
             <h6>Select Tip %</h6>
-            <h6 class="error-message" id="error-message">Can't be negative </h6>
+            <h6 class="error-message" id="tip-error-message">Can't be negative </h6>
           </div>
           <div class="tip-options">
-            <button class="tip-value" value="5" >5%</button>
+            <button class="tip-value tip-value-active" value="5" >5%</button>
             <button class="tip-value" value="10" >10%</button>
             <button class="tip-value" value="15" >15%</button>
             <button class="tip-value" value="25" >25%</button>
@@ -61,11 +61,11 @@
           </div>
           <div class="amount-detail">
             <p class="tip-amount">Total<br> /person</p>
-            <p class="total-amount" id="total-tip-per-person">$0.00</p>
+            <p class="total-amount" id="total-amount-per-person">$0.00</p>
           </div>
         </div>
         
-        <button class="reset-button">Reset</button>
+        <button class="reset-button" id="btn-reset">Reset</button>
       </div>
     </div>
   </main>
