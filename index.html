@@ -27,7 +27,7 @@
             <h6>Bill</h6>
             <h6 class="error-message" id="bill-error-message">Can't be negative or zero</h6>
           </div>
-          <input type="number" id="bill-charge" name="bill-charge" placeholder="0"/>
+          <input type="number" id="bill-charge" name="bill-charge" placeholder="0" oninput="billInput()"/>
         </div>
         <div class="select-tip-section">
           <div class="heading">
@@ -35,12 +35,12 @@
             <h6 class="error-message" id="tip-error-message">Can't be negative </h6>
           </div>
           <div class="tip-options">
-            <button class="tip-value tip-value-active" value="5" >5%</button>
-            <button class="tip-value" value="10" >10%</button>
-            <button class="tip-value" value="15" >15%</button>
-            <button class="tip-value" value="25" >25%</button>
-            <button class="tip-value" value="50" >50%</button>
-            <input type="number" name="custom-tip" id="custom-tip" placeholder="custom" class="tip-value" >
+            <button class="tip-value" value="5" onclick="tipInput(event)">5%</button>
+            <button class="tip-value" value="10" onclick="tipInput(event)">10%</button>
+            <button class="tip-value" value="15" onclick="tipInput(event)">15%</button>
+            <button class="tip-value" value="25" onclick="tipInput(event)">25%</button>
+            <button class="tip-value" value="50" onclick="tipInput(event)">50%</button>
+            <input type="number" name="custom-tip" id="custom-tip" placeholder="custom" class="tip-value" oninput="tipInput(event)">
           </div>
         </div>
         <div class="people-count-section">
@@ -48,7 +48,7 @@
             <h6>Number of People</h6>
             <h6 class="error-message" id="people-error-message">Can't be negative or zero</h6>
           </div>
-          <input type="number" name="people-count" id="people-count" placeholder="0"/>
+          <input type="number" name="people-count" id="people-count" placeholder="0" oninput="peopleInput(event)"/>
         </div>
       </div>
       <div class="right-container">
@@ -65,7 +65,7 @@
           </div>
         </div>
         
-        <button class="reset-button" id="btn-reset">Reset</button>
+        <button class="reset-button" id="btn-reset" onclick="resetEverything()">Reset</button>
       </div>
     </div>
   </main>

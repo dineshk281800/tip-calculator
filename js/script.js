@@ -18,7 +18,7 @@ const totalBillPerPerson=function(totalTip){
   const amountPerPerson=document.getElementById('total-amount-per-person');
 
   if(isNumeric(totalPerPerson)){
-    return (amountPerPerson.innerHTML=`${totalPerPerson}`);
+    return (amountPerPerson.innerHTML=`$${totalPerPerson}`);
   }
 }
 // function to calculate tipPerPerson
@@ -29,14 +29,14 @@ const tipPerPerson=function(){
 
   if(isNumeric((totalTip/totalPeople).toFixed(2))){
     totalBillPerPerson(totalTip);
-    return (tipPerPersonNode.innerHTML=`${(totalTip/totalPerson).toFixed(2)}`);
+    return (tipPerPersonNode.innerHTML=`$${(totalTip/totalPeople).toFixed(2)}`);
   }
 };
 
 // function to get number of people
 
 const peopleInput=function(){
-  totalPeople-Number(event.target.value);
+  totalPeople=Number(event.target.value);
 
   if(totalPeople<=0){
     document.getElementById('people-error-message').style.display='block';
@@ -66,7 +66,7 @@ const tipInput=function(event){
   if(tipNode!==undefined){
     tipNode.classList.remove('tip-value-active');
   }
-  event.target.className+='tip-value-active';
+  event.target.className+=' tip-value-active';
 
   tipSelected=Number(event.target.value);
 
@@ -79,4 +79,34 @@ const tipInput=function(event){
   
 };
 
-document.getElementById('btn-reset').addEventListener('click',tipInput);
+const resetEverything=function(){
+  // input field
+  const inputNodeList=document.getElementsByTagName('input');
+
+  for(const node of inputNodeList){
+    node.value='';
+  }
+  totalBill=0;
+  totalPeople=0;
+  tipSelected=0;
+
+  let buttonNodeList=document.getElementsByTagName('button');
+
+  for(const node of buttonNodeList){
+    if(node.classList.contains('tip-value-active')){
+      node.classList.remove('tip-value-active');
+    }
+  }
+
+  // reset all error message
+  const errorNodeList=document.getElementsByClassName('error-message');
+
+  for(const node of errorNodeList){
+    node.style.display='none';
+  }
+
+  // reset all the total amount displayed
+  document.getElementById('total-tip-per-person').innerText='$0.00';
+  document.getElementById('total-amount-per-person').innerText='$0.00';
+};
+resetEverything();
